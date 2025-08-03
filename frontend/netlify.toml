@@ -1,21 +1,12 @@
 [build]
-  command = "npm run build"
+  base = "frontend"
   publish = "frontend/build"
+  command = "npm install && npm run build"
 
 [build.environment]
-  NODE_VERSION = "18.18.2"
+  NODE_VERSION = "16.20.2"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[headers]]
-  for = "/static/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "no-cache"
